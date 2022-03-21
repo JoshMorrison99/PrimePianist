@@ -22,19 +22,30 @@ const Learn = () => {
       <Box sx={{ backgroundColor: "darkBlue.main", height: 300 }}></Box>
       <AppBar position="static" color="white">
         <Toolbar sx={{ height: 75, boxShadow: "0 2px 5px 0 rgb(0 0 0 / 20%)" }}>
-          <Stack ml={20} spacing={6} direction="row">
-            <Button size="large" variant="contained" startIcon={<BookIcon />}>
-              Learn
-            </Button>
-            <Button size="large" variant="contained" startIcon={<AdjustIcon />}>
-              Practice
-            </Button>
-            <Button size="large" variant="contained" startIcon={<SearchIcon />}>
-              Search
-            </Button>
-          </Stack>
+          <Container>
+            <Stack spacing={6} direction="row">
+              <Button size="large" variant="contained" startIcon={<BookIcon />}>
+                Learn
+              </Button>
+              <Button
+                size="large"
+                variant="contained"
+                startIcon={<AdjustIcon />}
+              >
+                Practice
+              </Button>
+              <Button
+                size="large"
+                variant="contained"
+                startIcon={<SearchIcon />}
+              >
+                Search
+              </Button>
+            </Stack>
+          </Container>
         </Toolbar>
       </AppBar>
+
       <Container>
         <Box my={5}>
           <Typography variant="h3">Learning Paths</Typography>

@@ -14,24 +14,15 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
 import PianoIcon from "@mui/icons-material/Piano";
 import Link from "next/link";
+import { Container } from "@mui/material";
 
 const NavBar = () => {
   const [page, setPage] = useState("");
   return (
     <AppBar position="static" color="primary">
       <Toolbar sx={{ height: 95, boxShadow: "0 2px 5px 0 rgb(0 0 0 / 20%)" }}>
-        <Link href="/">
-          <IconButton onClick={() => setPage("dashboard")}>
-            <PianoIcon
-              sx={{
-                fontSize: 55,
-              }}
-              color="button"
-            />
-          </IconButton>
-        </Link>
-        <Box sx={{ width: "50%" }}>
-          <Stack spacing={2} direction="row" justifyContent="center">
+        <Container>
+          <Stack spacing={4} direction="row">
             <Stack>
               <Link href="/">
                 <IconButton onClick={() => setPage("dashboard")}>
@@ -88,22 +79,27 @@ const NavBar = () => {
                 Other
               </Typography>
             </Stack>
-          </Stack>
-        </Box>
-        <Box mx={25}></Box>
-        <Box sx={{ width: "50%" }}>
-          <Stack spacing={2} direction="row" justifyContent="center">
-            <Stack direction="row" alignItems="center">
-              <Typography fontSize={30}>0</Typography>
+            <Stack
+              spacing={2}
+              direction="row"
+              justifyContent="flex-end"
+              style={{ flex: 1 }}
+            >
+              <Stack direction="row" alignItems="center">
+                <Typography fontSize={30}>0</Typography>
+                <IconButton>
+                  <LocalFireDepartmentIcon
+                    fontSize="large"
+                    color="hackerGreen"
+                  />
+                </IconButton>
+              </Stack>
               <IconButton>
-                <LocalFireDepartmentIcon fontSize="large" color="hackerGreen" />
+                <AccountCircle fontSize="large" color="button" />
               </IconButton>
             </Stack>
-            <IconButton>
-              <AccountCircle fontSize="large" color="button" />
-            </IconButton>
           </Stack>
-        </Box>
+        </Container>
       </Toolbar>
     </AppBar>
   );

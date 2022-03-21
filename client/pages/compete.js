@@ -23,10 +23,10 @@ const Compete = () => {
         }}
       >
         <Stack alignItems="center">
-          <Typography color="white" variant="h2">
+          <Typography color="white.main" variant="h2">
             Leaderboards
           </Typography>
-          <Typography variant="h6" color="white">
+          <Typography variant="h6" color="white.main">
             You are rank <span color="hackerGreen.main">#10835</span>
           </Typography>
         </Stack>
