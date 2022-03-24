@@ -15,9 +15,19 @@ import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
 import PianoIcon from "@mui/icons-material/Piano";
 import Link from "next/link";
 import { Container } from "@mui/material";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
 
 const NavBar = () => {
   const [page, setPage] = useState("");
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
   return (
     <AppBar position="static" color="primary">
       <Toolbar sx={{ height: 95, boxShadow: "0 2px 5px 0 rgb(0 0 0 / 20%)" }}>
@@ -94,9 +104,33 @@ const NavBar = () => {
                   />
                 </IconButton>
               </Stack>
-              <IconButton>
+              <IconButton
+                aria-controls={open ? "basic-menu" : undefined}
+                aria-haspopup="true"
+                aria-expanded={open ? "true" : undefined}
+                onClick={handleClick}
+              >
                 <AccountCircle fontSize="large" color="button" />
               </IconButton>
+              <Menu
+                id="basic-menu"
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleClose}
+                MenuListProps={{
+                  "aria-labelledby": "basic-button",
+                }}
+              >
+                <Link href="/profile">
+                  <MenuItem onClick={handleClose}>Profile</MenuItem>
+                </Link>
+                <Link href="/feedback">
+                  <MenuItem onClick={handleClose}>Give Feedback</MenuItem>
+                </Link>
+                <Link href="/logout">
+                  <MenuItem onClick={handleClose}>Logout</MenuItem>
+                </Link>
+              </Menu>
             </Stack>
           </Stack>
         </Container>
